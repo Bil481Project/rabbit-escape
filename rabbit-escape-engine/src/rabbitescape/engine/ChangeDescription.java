@@ -215,6 +215,11 @@ public class ChangeDescription
         WATER_REGION_HALF,
         WATER_REGION_EMPTY,
         WATER_REGION_FALLING,
+        
+        TOKEN_TELEPORT_FALLING,
+        TOKEN_TELEPORT_STILL,
+        TOKEN_TELEPORT_FALL_TO_SLOPE,
+        TOKEN_TELEPORT_ON_SLOPE,
 
         ENTRANCE,
         EXIT,

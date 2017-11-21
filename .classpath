@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="rabbit-escape-engine/src"/>
+	<classpathentry kind="src" path="rabbit-escape-engine/test"/>
+	<classpathentry kind="src" path="rabbit-escape-render/src"/>
+	<classpathentry kind="src" path="rabbit-escape-render/test"/>
+	<classpathentry kind="src" path="rabbit-escape-ui-swing/src"/>
+	<classpathentry kind="src" path="rabbit-escape-ui-swing/test"/>
+	<classpathentry kind="src" path="rabbit-escape-ui-text/src"/>
+	<classpathentry kind="src" path="rabbit-escape-ui-text/test"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/org.hamcrest.core_1.3.0.jar"/>
+	<classpathentry kind="lib" path="rabbit-escape-ui-android/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

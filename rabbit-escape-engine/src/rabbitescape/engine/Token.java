@@ -24,6 +24,7 @@ public class Token extends Thing
 
     public static enum Type
     {
+    	teleport,
         bash,
         dig,
         bridge,
@@ -54,7 +55,12 @@ public class Token extends Thing
     {
         switch( type )
         {
-            case bash:   return chooseState( moving, slopeBelow, onSlope,
+
+            case teleport: return chooseState( moving, slopeBelow, onSlope,
+                TOKEN_TELEPORT_FALLING, TOKEN_TELEPORT_STILL,
+                TOKEN_TELEPORT_FALL_TO_SLOPE, TOKEN_TELEPORT_ON_SLOPE);
+        
+        	case bash:   return chooseState( moving, slopeBelow, onSlope,
                 TOKEN_BASH_FALLING, TOKEN_BASH_STILL,
                 TOKEN_BASH_FALL_TO_SLOPE, TOKEN_BASH_ON_SLOPE);
 
@@ -138,6 +144,8 @@ public class Token extends Thing
         case TOKEN_EXPLODE_FALLING:
         case TOKEN_BROLLY_FALLING:
         case TOKEN_BROLLY_FALL_TO_SLOPE:
+        case TOKEN_TELEPORT_FALLING:
+        case TOKEN_TELEPORT_FALL_TO_SLOPE:
         {
             ++y;
 
