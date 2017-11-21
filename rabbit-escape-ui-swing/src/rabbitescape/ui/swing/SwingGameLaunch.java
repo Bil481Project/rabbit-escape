@@ -237,6 +237,35 @@ public class SwingGameLaunch implements GameLaunch
         }
     }
 
+    //custom
+    private boolean askBonusBack()
+    {
+        MiniGameLoop bgDraw = new MiniGameLoop();
+
+        new Thread( bgDraw ).start();
+
+        try
+        {
+            String[] buttons = new String[] { t( "Cancel" ), t( "Add Back!" ) };
+
+            int ret = JOptionPane.showOptionDialog(
+                frame,
+                t( "Do you want to add all your bonuses back?" ),
+                t( "Add Back?" ),
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                buttons,
+                buttons[1]
+            );
+
+            return ( ret == 1 );
+        }
+        finally
+        {
+            bgDraw.running = false;
+        }
+    }
     private void runSwingCodeWithGameLoopBehind( Runnable doRun )
     {
         MiniGameLoop bgDraw = new MiniGameLoop();
@@ -468,6 +497,26 @@ public class SwingGameLaunch implements GameLaunch
         {
             world.changes.explodeAllRabbits();
         }
+    }
+  
+    //custom
+    public boolean checkBonusBack()
+    {
+        world.setPaused( true );
+
+        boolean addBackBonus = askBonusBack();
+        //JOptionPane.showMessageDialog(null, "msg", "InfoBox: " + "title", JOptionPane.INFORMATION_MESSAGE);
+
+        world.setPaused( false );
+
+        if ( addBackBonus )
+        {
+            //world.changes.explodeAllRabbits();
+        	System.out.println("custom bonuses are back!");
+        	return true;
+        }
+        
+        return false;
     }
 
     public int addToken( int tileX, int tileY, Token.Type ability )

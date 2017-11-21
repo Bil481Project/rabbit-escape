@@ -646,7 +646,10 @@ public class GameUi implements StatsChangedListener
 
         if ( numLeft == 0 )
         {
-            menu.abilities.get( chosenAbility ).setEnabled( false );
+        	//custom
+
+            if( !gameLaunch.checkBonusBack())
+            	menu.abilities.get( chosenAbility ).setEnabled( false );
         }
 
         updateChosenAbility();
