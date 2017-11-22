@@ -163,6 +163,10 @@ public class WorldChanges
         tokensToAdd.clear();
     }
 
+    public synchronized void addBackTokens(Token.Type type){
+    	world.abilities.put( type, 5 );
+    }
+    
     public synchronized void addToken( int x, int y, Token.Type type )
     throws UnableToAddToken
     {
@@ -229,6 +233,16 @@ public class WorldChanges
     public synchronized void explodeAllRabbits()
     {
         explodeAll = true;
+    }
+    
+    //custom
+    public synchronized void addBonusesBack()
+    {
+    	// get the chosen bonus and put it back to be used once more
+        for ( Token t : tokensToAdd )
+        {
+            world.abilities.put( t.type, world.abilities.get( t.type ) + 1 );
+        }
     }
 
     public List<Rabbit> rabbitsJustEntered()

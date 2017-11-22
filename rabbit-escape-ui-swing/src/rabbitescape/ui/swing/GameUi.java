@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.event.WindowEvent;
+//import java.util.Map;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
@@ -647,7 +648,10 @@ public class GameUi implements StatsChangedListener
         if ( numLeft == 0 )
         {
         	//custom
-
+        	// update the number of token that can be used on top bar
+        	updateChosenAbility();
+        	// ask player to add the selected token back to be used once more
+        	// if the answer is no, then disable the selected bonus and update the top bar
             if( !gameLaunch.checkBonusBack())
             	menu.abilities.get( chosenAbility ).setEnabled( false );
         }

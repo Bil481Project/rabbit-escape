@@ -250,7 +250,7 @@ public class SwingGameLaunch implements GameLaunch
 
             int ret = JOptionPane.showOptionDialog(
                 frame,
-                t( "Do you want to add all your bonuses back?" ),
+                t( "Do you want to use the bonus one more time?" ),
                 t( "Add Back?" ),
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
@@ -266,6 +266,7 @@ public class SwingGameLaunch implements GameLaunch
             bgDraw.running = false;
         }
     }
+    
     private void runSwingCodeWithGameLoopBehind( Runnable doRun )
     {
         MiniGameLoop bgDraw = new MiniGameLoop();
@@ -500,19 +501,22 @@ public class SwingGameLaunch implements GameLaunch
     }
   
     //custom
+    // ask user to get the bonus back
     public boolean checkBonusBack()
     {
+    	// pause the game
         world.setPaused( true );
-
+        
+        // ask the player for adding the bonus back
         boolean addBackBonus = askBonusBack();
-        //JOptionPane.showMessageDialog(null, "msg", "InfoBox: " + "title", JOptionPane.INFORMATION_MESSAGE);
-
+      
+        // resume the game
         world.setPaused( false );
 
+        // if player choose add back, give one bonus back
         if ( addBackBonus )
         {
-            //world.changes.explodeAllRabbits();
-        	System.out.println("custom bonuses are back!");
+        	world.changes.addBonusesBack();
         	return true;
         }
         
