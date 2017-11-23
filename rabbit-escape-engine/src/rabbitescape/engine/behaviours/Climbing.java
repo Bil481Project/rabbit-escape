@@ -1,4 +1,4 @@
-package rabbitescape.engine.behaviours;
+	package rabbitescape.engine.behaviours;
 
 import static rabbitescape.engine.ChangeDescription.State.*;
 import static rabbitescape.engine.Direction.*;

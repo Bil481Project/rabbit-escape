@@ -41,13 +41,13 @@ public class Teleport extends Behaviour{
 	        {
 	            if ( t.rabbit.state == RABBIT_CLIMBING_LEFT_CONTINUE_2 )
 	            {
-	                return RABBIT_ENTERING_EXIT_CLIMBING_LEFT;
+	                return RABBIT_ENTERING_TELEPORT_CLIMBING_LEFT;
 	            }
 	            if ( t.rabbit.state == RABBIT_CLIMBING_RIGHT_CONTINUE_2 )
 	            {
-	                return RABBIT_ENTERING_EXIT_CLIMBING_RIGHT;
+	                return RABBIT_ENTERING_TELEPORT_CLIMBING_RIGHT;
 	            }
-	            return RABBIT_ENTERING_EXIT;
+	            return RABBIT_ENTERING_TELEPORT;
 	        }
 	        return null;
 	    }
@@ -56,9 +56,9 @@ public class Teleport extends Behaviour{
 	    public boolean behave( World world, Rabbit rabbit, State state )
 	    {
 	        if (
-	               state == RABBIT_ENTERING_EXIT
-	            || state == RABBIT_ENTERING_EXIT_CLIMBING_RIGHT
-	            || state == RABBIT_ENTERING_EXIT_CLIMBING_LEFT
+	               state == RABBIT_ENTERING_TELEPORT
+	            || state == RABBIT_ENTERING_TELEPORT_CLIMBING_RIGHT
+	            || state == RABBIT_ENTERING_TELEPORT_CLIMBING_LEFT
 	           )
 	        {
 	            world.changes.saveRabbit( rabbit );
