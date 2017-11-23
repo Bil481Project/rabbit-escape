@@ -165,11 +165,9 @@ public class SpriteAnimator
         {
             return null;
         }
-
         Animation animation = animationCache.get( thing.stateName() );
-
         if ( animation == null )
-        {
+        {	
             System.out.println(
                 "Missing animation for state " + thing.stateName() );
             return null;
