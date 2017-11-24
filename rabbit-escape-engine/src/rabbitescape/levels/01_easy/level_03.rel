@@ -10,6 +10,7 @@
 :num_to_save=2
 :rabbit_delay=1
 :bridge=15
+:teleport=1
 :music=tryad-witness
 #####################
 #                   #

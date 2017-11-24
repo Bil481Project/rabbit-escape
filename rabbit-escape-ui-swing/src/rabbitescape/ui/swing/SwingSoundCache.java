@@ -37,7 +37,7 @@ public class SwingSoundCache
 
     private Clip loadClip( String name ) throws Exception
     {
-    	System.out.println("name : "+ name);
+    	
         AudioInputStream stream = AudioSystem.getAudioInputStream(
             getClass().getResource(
                 "/rabbitescape/ui/swing/" + name + ".wav"
