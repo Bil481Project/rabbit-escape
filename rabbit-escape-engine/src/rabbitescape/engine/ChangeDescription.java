@@ -208,7 +208,7 @@ public class ChangeDescription
         TOKEN_BLOCK_FALLING,
         TOKEN_BLOCK_FALL_TO_SLOPE,
         TOKEN_BLOCK_ON_SLOPE,
-
+        
         TOKEN_CLIMB_STILL,
         TOKEN_CLIMB_FALLING,
         TOKEN_CLIMB_FALL_TO_SLOPE,

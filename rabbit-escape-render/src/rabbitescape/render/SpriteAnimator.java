@@ -26,6 +26,14 @@ public class SpriteAnimator
         "land_block_3",
         "land_block_4",
     };
+    
+    private static final String[] land_star = new String[]
+        {
+            "land_star_1",
+            "land_star_2",
+            "land_star_3",
+            "land_star_4",
+        };
 
     private static final String[] land_rising_right = new String[]
     {
@@ -64,6 +72,11 @@ public class SpriteAnimator
             addBlock( block, ret );
         }
 
+        for ( Star star : world.star )
+        {
+            addStar( star, ret );
+        }
+        
         for ( Thing thing : Util.filterOut( world.things, Fire.class ) )
         {
             addThing( frameNum, thing, null, ret );
@@ -106,6 +119,20 @@ public class SpriteAnimator
                 null,
                 block.x,
                 block.y,
+                0,
+                0
+            )
+        );
+    }
+    
+    private void addStar( Star star, List<Sprite> ret )
+    {
+        ret.add(
+            new Sprite(
+                bitmapNameForStar( star ),
+                null,
+                star.x,
+                star.y,
                 0,
                 0
             )
@@ -176,14 +203,18 @@ public class SpriteAnimator
         
         if ( animation == null )
         {
-            /*System.out.println(
-                "Missing animation for state " + thing.stateName() );*/
+            System.out.println(
+                "Missing animation for state " + thing.stateName() );
             return null;
         }
 
         return animation.get( frameNum );
     }
-
+    
+    private String bitmapNameForStar( Star star ){
+        return land_star[0];
+    }
+    
     private String bitmapNameForBlock( Block block )
     {
         switch ( block.material )

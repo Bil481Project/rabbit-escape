@@ -15,6 +15,7 @@ import rabbitescape.engine.Block;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.IgnoreWorldStatsListener;
 import rabbitescape.engine.Rabbit;
+import rabbitescape.engine.Star;
 import rabbitescape.engine.Thing;
 import rabbitescape.engine.Token;
 import rabbitescape.engine.VoidMarkerStyle;
@@ -117,6 +118,7 @@ public class TextWorldManip
     )
     {
         List<Block> blocks = new ArrayList<>();
+        List<Star> star = new ArrayList<>();
         List<Rabbit> rabbits = new ArrayList<>();
         List<Thing> things = new ArrayList<>();
         Map<Position, Integer> waterAmounts = new HashMap<>();
@@ -126,6 +128,7 @@ public class TextWorldManip
 
         LineProcessor processor = new LineProcessor(
             blocks,
+            star,
             rabbits,
             things,
             waterAmounts,
@@ -137,7 +140,7 @@ public class TextWorldManip
         int num_rabs = processor.metaInt( num_rabbits, 10 );
 
         World world = createWorldFromLineProcessor(
-            nameIfNoneSupplied, statsListener, blocks, rabbits, things, waterAmounts,
+            nameIfNoneSupplied, statsListener, blocks,star, rabbits, things, waterAmounts,
             abilities, processor, num_rabs );
 
         world.countRabbitsForIndex();
@@ -149,6 +152,7 @@ public class TextWorldManip
         String nameIfNoneSupplied,
         WorldStatsListener statsListener,
         List<Block> blocks,
+        List<Star> star,
         List<Rabbit> rabbits,
         List<Thing> things,
         Map<Position, Integer> waterAmounts,
@@ -160,6 +164,7 @@ public class TextWorldManip
         return new World(
             processor.size(),
             blocks,
+            star,
             rabbits,
             things,
             waterAmounts,
@@ -190,6 +195,7 @@ public class TextWorldManip
         return new World(
             new Dimension( width, height ),
             new ArrayList<Block>(),
+            new ArrayList<Star>(),
             new ArrayList<Rabbit>(),
             new ArrayList<Thing>(),
             new HashMap<Position, Integer>(),

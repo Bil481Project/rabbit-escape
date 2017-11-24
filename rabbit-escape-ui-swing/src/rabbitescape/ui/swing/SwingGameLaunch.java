@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
 import static rabbitescape.engine.i18n.Translation.t;
 
 import rabbitescape.engine.LevelWinListener;
+import rabbitescape.engine.Star;
 import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
 import rabbitescape.engine.config.Config;
@@ -30,6 +31,7 @@ import rabbitescape.ui.swing.SwingGameInit.WhenUiReady;
 
 public class SwingGameLaunch implements GameLaunch
 {
+    
     /**
      * A loop that just draws the game window when it's behind the
      * intro dialog.
@@ -399,6 +401,7 @@ public class SwingGameLaunch implements GameLaunch
             t(
                 "Saved: ${num_saved}  Needed: ${num_to_save}",
                 DialogText.statsValues( world )
+                
             ),
             new Object[] { t( "Ok" ) }
         );

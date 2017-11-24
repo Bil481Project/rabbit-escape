@@ -8,13 +8,14 @@
 :solution.1=bridge;(6,5);(14,4);(9,4);33
 :num_rabbits=2
 :num_to_save=2
+:jump=1
 :rabbit_delay=1
 :bridge=15
 :music=tryad-witness
 #####################
 #                   #
 #                   #
-#                   #
+#        s          #
 #\ Q               O#
 ##\    ######## #####
 ############### #####

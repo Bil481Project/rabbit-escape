@@ -286,6 +286,10 @@ token_explode_falling.rea
 token_explode_fall_to_slope.rea
 token_explode_on_slope.rea
 token_explode_still.rea
+token_jumping_falling.rea
+token_jumping_fall_to_slope.rea
+token_jumping_on_slope.rea
+token_jumping_still.rea
 water_region_falling.rea
 water_region_half.rea
 water_region.rea

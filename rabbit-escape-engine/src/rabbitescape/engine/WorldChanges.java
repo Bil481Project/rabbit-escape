@@ -25,7 +25,10 @@ public class WorldChanges
     public  final List<Fire>   fireToRemove   = new ArrayList<Fire>();
     private final List<Block>  blocksToAdd    = new ArrayList<Block>();
     private final List<Block>  blocksToRemove = new ArrayList<Block>();
+    private final List<Star>  starToAdd    = new ArrayList<Star>();
+    private final List<Star>  starToRemove = new ArrayList<Star>();
     public final List<Position>   blocksJustRemoved = new ArrayList<Position>();
+    public final List<Position>   starJustRemoved = new ArrayList<Position>();
     private final List<Position>  waterPointsToRecalculate = new ArrayList<>();
 
     private boolean explodeAll = false;
@@ -56,6 +59,7 @@ public class WorldChanges
         world.things.removeAll(  tokensToRemove );
         world.things.removeAll( fireToRemove );
         world.blockTable.removeAll(  blocksToRemove );
+        world.star.removeAll( starToRemove );
 
         for ( Position point : waterPointsToRecalculate )
         {
@@ -226,6 +230,17 @@ public class WorldChanges
         waterPointsToRecalculate.add( new Position( x, y ) );
     }
 
+    public synchronized void removeStarAt( int x, int y ) throws Exception
+    {
+        Star star = world.getStarAt( x, y );
+        if ( star == null )
+        {
+            throw new Exception();
+        }
+        starJustRemoved.add( new Position( x, y ) );
+        starToRemove.add( star );
+    }
+    
     public synchronized List<Thing> tokensAboutToAppear()
     {
         return new ArrayList<Thing>( tokensToAdd );

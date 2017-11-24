@@ -9,9 +9,10 @@
 :num_rabbits=3
 :num_to_save=1
 :bash=10
+:jump=1
 :music=tryad-witness
 ###########
-#   Q   # #
+#   Q  s# #
 # /\    # #
 ######### #
 #O        #

@@ -12,11 +12,12 @@
 :bash=1
 :bridge=2
 :block=2
+:jump=1
 :explode=20
 :music=tryad-witness
 #################
 #      ###      #
-#  Q   ###   Q  #
+#  Q   ###s  Q  #
 #      ###      #
 #################
 #      ###      #

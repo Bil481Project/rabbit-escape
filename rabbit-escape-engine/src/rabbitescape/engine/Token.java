@@ -70,7 +70,7 @@ public class Token extends Thing
             case block: return chooseState( moving, slopeBelow, onSlope,
                 TOKEN_BLOCK_FALLING, TOKEN_BLOCK_STILL,
                 TOKEN_BLOCK_FALL_TO_SLOPE, TOKEN_BLOCK_ON_SLOPE);
-
+            
             case climb: return chooseState( moving, slopeBelow, onSlope,
                 TOKEN_CLIMB_FALLING, TOKEN_CLIMB_STILL,
                 TOKEN_CLIMB_FALL_TO_SLOPE, TOKEN_CLIMB_ON_SLOPE);

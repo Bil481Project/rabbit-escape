@@ -42,7 +42,21 @@ public class World
             this.y = y;
         }
     }
+    
+    public static class NoStarFound extends RabbitEscapeException
+    {
+        private static final long serialVersionUID = 1L;
 
+        public final int x;
+        public final int y;
+
+        public NoStarFound( int x, int y )
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+    
     public static class UnableToAddToken extends RabbitEscapeException
     {
 
@@ -104,6 +118,7 @@ public class World
 
     public final Dimension size;
     public final LookupTable2D<Block> blockTable;
+    public final LookupTable2D<Star> star;
     /** A grid of water. Only one water object should be stored in each location. */
     public final LookupTable2D<WaterRegion> waterTable;
     public final List<Rabbit> rabbits;
@@ -134,6 +149,7 @@ public class World
     public World(
         Dimension size,
         List<Block> blocks,
+        List<Star> star,
         List<Rabbit> rabbits,
         List<Thing> things,
         Map<Position, Integer> waterAmounts,
@@ -184,11 +200,13 @@ public class World
         {
             // make allowance for tests with no world
             this.blockTable = null;
+            this.star = null;
             this.waterTable = new LookupTable2D<WaterRegion>( size );
         }
         else
         {
             this.blockTable = new LookupTable2D<Block>( blocks, size );
+            this.star = new LookupTable2D<Star>(star,size);
             this.waterTable = WaterRegionFactory.generateWaterTable( blockTable,
                 waterAmounts );
         }
@@ -296,6 +314,16 @@ public class World
             return null;
         }
         return blockTable.getItemAt( x, y );
+    }
+    
+    public Star getStarAt( int x, int y)
+    {
+        if ( x <  0          || y <  0           ||
+             x >= size.width || y >= size.height  )
+        {
+            return null;
+        }
+        return star.getItemAt( x, y );
     }
 
     public CompletionState completionState()

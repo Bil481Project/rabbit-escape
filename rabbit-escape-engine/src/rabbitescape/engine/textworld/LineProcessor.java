@@ -26,6 +26,7 @@ import rabbitescape.engine.Exit;
 import rabbitescape.engine.Fire;
 import rabbitescape.engine.Pipe;
 import rabbitescape.engine.Rabbit;
+import rabbitescape.engine.Star;
 import rabbitescape.engine.Thing;
 import rabbitescape.engine.Token;
 import rabbitescape.engine.VoidMarkerStyle;
@@ -81,7 +82,8 @@ public class LineProcessor
     static final Pattern keyListKeyRegex = Pattern.compile(
         "(.*)\\.(\\d{1,3})" );
 
-    private final List<Block> blocks;
+    private final List<Block> blocks;    
+    private final List<Star> star;
     private final List<Rabbit> rabbits;
     private final List<Thing> things;
     private final Map<Position, Integer> waterAmounts;
@@ -102,6 +104,7 @@ public class LineProcessor
 
     public LineProcessor(
         List<Block> blocks,
+        List<Star> star,
         List<Rabbit> rabbits,
         List<Thing> things,
         Map<Position, Integer> waterAmounts,
@@ -111,6 +114,7 @@ public class LineProcessor
     )
     {
         this.blocks = blocks;
+        this.star = star;
         this.rabbits = rabbits;
         this.things = things;
         this.waterAmounts = waterAmounts;
@@ -652,6 +656,11 @@ public class LineProcessor
             case '*':
             {
                 starPoints.add( new Position( x, y ) );
+                break;
+            }
+            case 's':
+            {
+                star.add( new Star( x, y ) );
                 break;
             }
             default:

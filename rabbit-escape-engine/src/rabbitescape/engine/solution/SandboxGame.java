@@ -44,7 +44,7 @@ public class SandboxGame
         List<Thing> clonedThings = makeClonedThings( world.things );
         this.world = new World( world.size,
             world.blockTable.getListCopy(),
-            clonedRabbits,
+            world.star.getListCopy(), clonedRabbits,
             clonedThings,
             world.getWaterContents(),
             new HashMap<>( world.abilities ),

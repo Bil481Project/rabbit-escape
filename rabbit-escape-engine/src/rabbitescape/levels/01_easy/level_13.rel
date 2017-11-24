@@ -14,6 +14,7 @@
 :dig=3
 :explode=3
 :block=3
+:jump=1
 :music=tryad-witness
 #################
 #  Q           O#

@@ -10,6 +10,7 @@
 :num_to_save=5
 :dig=5
 :climb=1
+:jump=1
 :bridge=10
 :music=tryad-witness
 ################

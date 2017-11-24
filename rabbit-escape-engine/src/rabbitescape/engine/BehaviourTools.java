@@ -120,7 +120,7 @@ public class BehaviourTools
             
             Token token = world.getTokenAt( rabbit.x, rabbit.y );
 
-            System.out.println("type : " + type);
+            //System.out.println("type : " + type);
             if ( token != null && token.type == type )
             {
                 world.changes.removeToken( token );
@@ -158,6 +158,11 @@ public class BehaviourTools
     public Block blockAbove()
     {
         return world.getBlockAt( rabbit.x, rabbit.y - 1 );
+    }
+    
+    public Star starAbove()
+    {
+        return world.getStarAt( rabbit.x, rabbit.y - 1 );
     }
 
     public Block blockAboveNext()

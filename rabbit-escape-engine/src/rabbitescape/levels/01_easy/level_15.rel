@@ -12,6 +12,7 @@
 :climb=1
 :dig=1
 :bridge=1
+:jump=1
 :bash=1
 :explode=1
 :music=tryad-witness

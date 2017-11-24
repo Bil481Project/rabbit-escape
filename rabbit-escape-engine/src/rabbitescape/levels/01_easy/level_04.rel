@@ -10,12 +10,13 @@
 :num_to_save=2
 :rabbit_delay=5
 :block=15
+:jump=1
 :explode=15
 :music=tryad-witness
 #####################
 #    Q              #
 #                   #
-#  #######          #
+#  #######    s     #
 #                   #
 #     ##########    #
 #                   #
